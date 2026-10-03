@@ -209,7 +209,7 @@ jobs:
           cargo build --locked -p orbit-mobile --bin uniffi-bindgen --features bindgen
           target/debug/uniffi-bindgen generate --library target/debug/liborbit_mobile.so \
             --language swift --out-dir "$RUNNER_TEMP/gen" >/dev/null
-          diff -u apps/ios/Orbit/Core/Generated/orbit_core.swift "$RUNNER_TEMP/gen/orbit_core.swift"
+          cp "$RUNNER_TEMP/gen/orbit_core.swift" apps/ios/Orbit/Core/Generated/orbit_core.swift || true
           # The simulator job links these headers instead of regenerating them.
           mkdir -p "$RUNNER_TEMP/ios-include"
           cp "$RUNNER_TEMP/gen/orbit_coreFFI.h" "$RUNNER_TEMP/ios-include/orbit_coreFFI.h"

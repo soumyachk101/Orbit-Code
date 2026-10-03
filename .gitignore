@@ -19,3 +19,7 @@ edge/dist/
 /.kilo/
 .claude
 CLAUDE.md
+.playwright-mcp/
+/orbit-hero*
+/orbit-homepage-desktop.png
+website/public/

@@ -29,6 +29,7 @@ rm -rf "$BUILD_DIR"
 mkdir -p "$BUILD_DIR"
 
 for TARGET in aarch64-apple-darwin x86_64-apple-darwin; do
+  rustup target add "$TARGET" || true
   echo "building $TARGET..."
   cargo build --release -p orbit --target "$TARGET"
   cp "target/$TARGET/release/orbit" "$BUILD_DIR/orbit-$TARGET"
